@@ -47,7 +47,7 @@ cd meegle-mcp
 
 The setup script will:
 - Check Node.js installation
-- Prompt for your Meegle User Key
+- Prompt for your Meegle User Key and MCP Key
 - Configure credentials (environment variable or config file)
 - Make necessary scripts executable
 
@@ -72,12 +72,15 @@ If you prefer manual setup:
 1. Add to your shell profile (`~/.zshrc`, `~/.bashrc`, etc.):
    ```bash
    export MEEGLE_USER_KEY="your_user_key_here"
+   export MEEGLE_MCP_KEY="your_mcp_key_here"
    ```
 
 2. Reload your shell:
    ```bash
    source ~/.zshrc
    ```
+
+   **Note**: Both `MEEGLE_USER_KEY` and `MEEGLE_MCP_KEY` are required. You can obtain these from your Meegle workspace administrator.
 
 ### Option B: Config File
 
@@ -130,8 +133,11 @@ openclaw ask "Add sarah@company.com to the Mobile App project in Meegle"
 openclaw ask "Show me project completion stats for this month in Meegle"
 ```
 
-## Finding Your User Key
+## Finding Your Keys
 
+You need two keys to use this skill:
+
+### MEEGLE_USER_KEY
 Your Meegle User Key is provided by your workspace administrator. To locate it:
 
 1. Log in to your Meegle workspace
@@ -139,13 +145,23 @@ Your Meegle User Key is provided by your workspace administrator. To locate it:
 3. Copy your User Key
 4. Keep it secure (treat it like a password)
 
+### MEEGLE_MCP_KEY
+Your Meegle MCP Key is also provided by your workspace administrator. This key is required for MCP protocol authentication:
+
+1. Contact your workspace administrator
+2. Request your MCP Key for API integration
+3. Store it securely alongside your User Key
+
+**Security Note**: Never share these keys publicly or commit them to version control.
+
 ## Troubleshooting
 
 ### Authentication Errors
 
 ```bash
-# Verify your user key is set
+# Verify your keys are set
 echo $MEEGLE_USER_KEY
+echo $MEEGLE_MCP_KEY
 
 # Check OpenClaw logs
 openclaw logs --filter=meegle
@@ -154,8 +170,9 @@ openclaw logs --filter=meegle
 ### MCP Server Not Responding
 
 1. Check network connectivity to `project.larksuite.com`
-2. Verify your User Key hasn't expired
-3. Ensure Node.js is properly installed: `node --version`
+2. Verify both your User Key and MCP Key haven't expired
+3. Ensure both environment variables are properly set
+4. Ensure Node.js is properly installed: `node --version`
 
 ### Skills Not Loading
 
@@ -251,9 +268,10 @@ clawhub publish --version 1.1.0
 - 🔒 **Never commit credentials** to version control
 - 🔒 Use `.gitignore` to exclude sensitive files
 - 🔒 Store keys in environment variables or secure vaults
+- 🔒 Keep both `MEEGLE_USER_KEY` and `MEEGLE_MCP_KEY` secure
 - 🔒 Consider using a dedicated service account for OpenClaw
 - 🔒 Review and limit MCP server permissions
-- 🔒 Regularly rotate your User Key
+- 🔒 Regularly rotate your User Key and MCP Key
 
 ## Project Structure
 

@@ -35,7 +35,8 @@ You need:
 Set your user key as an environment variable:
 
 ```bash
-export MEEGLE_USER_KEY="7602474579558207196"
+export MEEGLE_USER_KEY="your_user_key_here"
+export MEEGLE_MCP_KEY="your_mcp_key_here"
 ```
 
 Add this to your shell profile (`~/.bashrc`, `~/.zshrc`, etc.) to persist across sessions.
