@@ -189,7 +189,7 @@ git add .
 git commit -m "Initial commit: Meegle MCP skill"
 
 # Create repo on GitHub, then push
-git remote add origin https://github.com/YOUR_USERNAME/meegle-mcp-skill.git
+git remote add origin https://github.com/pkycy/meegle-mcp-skill.git
 git branch -M main
 git push -u origin main
 ```
@@ -293,9 +293,9 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ## Support
 
-- 🐛 [Report Issues](https://github.com/YOUR_USERNAME/meegle-mcp-skill/issues)
+- 🐛 [Report Issues](https://github.com/pkycy/meegle-mcp-skill/issues)
 - 💬 [Discuss on ClawHub](https://clawhub.ai/skills/meegle-mcp)
-- 📧 Email: your.email@example.com
+- 📧 Email: 13060626770@163.com
 
 ---
 
